@@ -45,17 +45,15 @@ public class Jogo {
     }
 
     public void aplicarDesconto(int percentualDesconto) {
-        var valorAtual = getPreco();
-        var valorDesconto = valorAtual * percentualDesconto;
-        var valorFinal = valorAtual - valorDesconto;
-        setPreco(valorFinal);
+        var valorAtual = this.getPreco();
+        var valorDesconto = valorAtual - (valorAtual / percentualDesconto) * 100;
+        setPreco(valorDesconto);
     }
 
     public void aumentarPreco(int percentualAumento) {
         var valorAtual = getPreco();
-        var valorDesconto = valorAtual * percentualAumento;
-        var valorFinal = valorAtual + valorDesconto;
-        setPreco(valorFinal);
+        var valorAumento = valorAtual + (valorAtual / percentualAumento) * 100;
+        setPreco(valorAumento);
     }
 
     public void atualizarClassificacao(int novaClassificacao) {
